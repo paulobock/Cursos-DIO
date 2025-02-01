@@ -1,0 +1,7 @@
+git init
+git add
+git status
+git commit -m "mensagem"
+git clone 'endereço do repositório no GitHub
+git pull origin main
+git push origin main
