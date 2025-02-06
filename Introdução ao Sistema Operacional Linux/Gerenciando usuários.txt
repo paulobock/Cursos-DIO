@@ -1,0 +1,131 @@
+#CRIANDO E EXCLUINDO USUÁRIOS
+useradd nome do usuário
+userdel -f joao
+useradd --help
+useradd joao -m -c "João da Silva" -s /bin/bash
+	-m = cria home do usuário
+	-c = informa nome completo do usuário
+	-s = indica o shell padrão
+	-p = indica senha na hora de criação do usuário, precisa ser encriptada
+passwd joão
+chsh = mudar o shell do usuário
+chsh -s /bin/bash joao
+user del -r -f joao
+	-r = remove /home/user
+useradd convidado -c "usuário especial" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+useradd convidado -c "usuário especial" -s /bin/bash -m -p $(openssl passwd Senah123)
+
+#EDITANDO INFORMAÇÕES DO USUÁRIO
+useradd --help
+useradd convidado -c "conta de convidado" -m -e 09/02/2025 = -e especifica tempo de expiração
+passwd guest
+passwd -e guest = -e especifica validade da senha e se deixar em branco expira na hora
+usermod = permite alterações em usuário criado
+usermod guest -s /bin/bash
+cat /etc/passwd = arquivo da lista de usuários
+
+#SHELL SCRIPT - CRIANDO USUÁRIOS EM LOTE
+useradd convidado -c "usuário especial" -s /bin/bash -m -p $(openssl passwd Senah123)
+mkdir /scripts
+nano criar_user.sh
+	#!/bin/bash
+	useradd guest10 -c "convidado10" -s /bin/bash -m -p $(openssl passwd Senha123)
+	passwd -e guest10
+	useradd guest11 -c "convidado10" -s /bin/bash -m -p $(openssl passwd Senha123)
+	passwd -e guest11
+	useradd guest12 -c "convidado10" -s /bin/bash -m -p $(openssl passwd Senha123)
+	passwd -e guest12
+	useradd guest13 -c "convidado10" -s /bin/bash -m -p $(openssl passwd Senha123)
+	passwd -e guest13
+	useradd guest14 -c "convidado10" -s /bin/bash -m -p $(openssl passwd Senha123)
+	passwd -e guest14
+chmod +x criar_user.sh
+
+#ADICIONANDO USUÁRIOS A GRUPOS
+useradd maria -c "Maria Santos" -m -s /bin/bash -p $(openssl passwd Senha123)
+cat /etc/group = arquivo que amazena os grupos
+usermod -G adm,sudo maria
+ -g = adiciona em apenas 1 grupo
+ -G = permite adicionar a mais de 1 grupo
+
+#CRIANDO NOVOS GRUPOS
+groupadd GRP_ADM
+groupadd GRP_VEN
+groupadd GRP_TESTE
+groupdel GRP_TESTE
+
+useradd rodrigo -c "Rodrigo Silva" -m -s /bin/bash -p $(openssl passwd Senha123) -G GRP_ADM
+useradd debora -c "Débora Silva" -m -s /bin/bash -p $(openssl passwd Senha123) -G GRP_ADM
+useradd daniel -c "Daniel Silva" -m -s /bin/bash -p $(openssl passwd Senha123) -G GRP_VEN
+useradd maisa -c "Maisa Silva" -m -s /bin/bash -p $(openssl passwd Senha123) -G GRP_VEN
+usermod -G GRP_VEN joao = 
+usermod -G adm,sudo,GRP_VEN maria = atualiza os grupos do usuário
+gpasswd -d maria sudo = remove usuário de determinado grupo
+
+#CONHECENDO O SISTEMA DE PERMISSÕES
+cd /home
+ls -ls
+drwxr-x---  5 pauloh    pauloh    4096 Feb  2 20:04 pauloh
+
+d = diretório
+- = arquivo
+l = link
+
+RWX	RWX	RWX		R = Read/Leitura	W = Write/Escrita
+Dono	Grupo	Outros				X = Execute/Execução
+
+mkdir /adm
+mkdir /ven
+cat /etc/group
+mudando dono e grupo do diretório
+chown debora:GRP_ADM /adm = chown dono:grupo /diretório
+chown maria:GRP_VEN /vensu 
+
+#ALTERANDO AS PERMISSÕES DE UM DIRETÓRIO/ARQUIVO
+
+Leitura 	= 4
+Gravação	= 2
+Execução 	= 1
+Nenhuma		= 0
+
+chmod Dono:Grupo:Outros Diretório/Arquivo
+chmod 750 /adm
+chmod 775 /ven
+
+modificando permissões específicas de um arquivo
+chown root:GRP_ADM /adm/texto.txt
+chmod 750 /adm/text.ttx
+chmod 777 /publica
+
+Permissões para SCRIPTS
+cd /scripts
+nano date.sh
+	#!/bin/bash
+	echo"Exibindo a data atual"
+	date
+
+chmod 744 /scripts/date.sh = permissão para execução do script
+chmod 644 /scripts/date.sh = removendo permissões padrão
+chmod +x /scripts//date.sh = adiciona permissão de execução apenas para o dono
+chmod -x /scripts/date.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

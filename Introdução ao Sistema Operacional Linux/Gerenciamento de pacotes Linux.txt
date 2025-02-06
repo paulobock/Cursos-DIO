@@ -1,0 +1,81 @@
+#GERENCIAMENTO DE PACOTES (Ubuntu-Debian)
+apt-get --help
+apt-get update > apt-get upgrade
+
+apt update > apt upgrade
+apt list --installed = exibe pacotes instalados no sistema
+apt list --upgradeable = exibe pacotes instalados que podem receber atualizações
+apt search samba = pesquisa pacotes possíveis de serem instalados
+apt serach net-tools
+apt install net-tools
+
+wget Diretório endereço-do-link
+
+apt install unzip
+unzip arquivo.zip
+
+apt remove net-tools -y = remove pacotes sem confirmação
+
+apt edit-sources
+/etc/apt/sources.list.d/ubuntu.sources
+
+#ATUALIZAÇÃO DO SISTEMA OPERACIONAL
+
+apt update = atualiza a lista de pacotes
+apt upgrade -y = efetua a atualização a partir da lista atualizada
+shutdown 0 = desliga o computador
+
+#GERENCIAMENTO DE PACOTES - Fedora / Red-Hat / CentOS / Amazon Linux / SUSE
+dnf --help user friendly
+yum --help para scripts
+
+dnf search net-tools
+dnf install net-tools -y
+dnf remove net-tools -y
+dnf update -y = atualiza a lista de repositórios e atualiza os pacotes
+yum install httpd
+
+#REALIZANDO A INSTALAÇÃO DE ARQUIVOS deb - pacotes de instalação
+Debian/Ubuntu DEB
+Red-Hat/Fedora/SUSE RPM
+
+apt install ./nome-do-arquivo.deb
+dnf install ./nome-do-arquivo.rpm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

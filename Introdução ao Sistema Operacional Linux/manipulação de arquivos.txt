@@ -1,0 +1,55 @@
+#COMANDOS BÁSICOS
+
+pauloh@servidor:~$
+
+~ = pasta do usuário
+$ = usuário com restrições
+# = usuário root - super usuário
+
+date
+Sun Feb  2 17:45:14 UTC 2025
+
+clear = Limpar a tela = CTRL+L
+
+pwd = exibe o diretório atual
+/home/pauloh
+
+cd ~  = vai para home do usuário
+cd .. = retorna um nível de diretório
+
+man ls 
+ls = lista o conteúdo de um diretório
+ls | more = lista o conteúdo paginado linha a linha = CTRL+C / ESC sai
+ls p* = lista todos os arquivos que começam com p e o conteúdo dos diretórios
+ls arquivo[1-2]* = lista arquivos em sequência
+ls arquivo[1,3]* = lista arquivos determinados
+ls arquivo[^1,3]* = não lista os arquivos especificados
+
+touch arquivo1.txt = cria o arquivo arquivo1.txt
+
+find -name arquiv* = procura arquivo ou diretório por nome
+sudo find -name passwd*
+
+mkdir /home/pauloh/Planilhas = cria o diretório Planilhas
+rm texto1.text = apaga arquivos
+rmdir Meus = apaga diretório Meus (diretórios vazios)
+rm -rv Planilhas/ = remove diretório e conteúdos
+    -r recursivo
+    -f force 
+
+help ls
+ls --help
+man ls - depois de atualizar/instalar man-db = sudo apt-get install man-db
+
+ls -l = lista detalhadamente
+ls -a = lista todos os arquivos
+ls -h = exibe tamanhos em formato humano
+
+#LOGANDO COMO USUÁRIO ROOT - Ubuntu
+
+sudo passwd root
+su = trocar para root
+su pauloh = trocar para outro usuário
+
+
+

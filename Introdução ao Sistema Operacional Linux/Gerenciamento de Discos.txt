@@ -1,0 +1,49 @@
+#DISCOS, SISTEMAS DE ARQUIVOS E PARTIÇÕES
+
+MacOS = HFS
+Unix/LInux = Ext3, Ext4, XFS
+Windows = Fat32, NTFS
+
+Linux
+discos são as setras
+sda (disco1)	sdb (disco2)
+   -sda1	   -sdb1
+   -sda2	   -sdb2
+   -sda3	   
+
+#ADICIONANDOO UM NOVO DISCO
+lsblk = lista os disco e partições
+fdisk -l = lista os disco e partições
+
+#PARTICIONANDO E FORMATANDO DISCOS VIA TERMINAL
+
+fdisk /dev/sdb
+digitar o comando ou m para ajuda
+n   add a new partition
+p   primary
+w   write table to disk and exit
+
+formatando
+mkfs.ext4 /dev/sdb
+
+#MONTENADO E DESMONTANDO DISCOS
+
+mount /unidade-de-disco /local-da-montagem
+mount /dev/sdb /mnt/disco2/
+cd /
+umount /unidade-de-disco
+umount /dev/sdb
+
+#MONTANDO DISCOS AUTOMATICAMENTE
+lsblk = descobrir onde o disco está montado
+
+/etc/fstab
+/unidade-de-disco /onde-vai-montar sistema-de-arquivos defaults 0 0
+/dev/sdb /disk2 ext4 defaults 0 0
+
+
+
+
+
+
+
