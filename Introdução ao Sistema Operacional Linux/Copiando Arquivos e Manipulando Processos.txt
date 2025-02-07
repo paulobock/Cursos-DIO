@@ -1,0 +1,35 @@
+#COPIANDO ARQUIVOS
+cp --help
+cp /home/pauloh/bancodedado.mdf /disk2/
+cp /home/pauloh/*.txt /disk2/
+cp ./a* /disk2/ = usar ./ quando estiver no diretório de origem
+cp ./* /disk2/ -i = parâmetro -i pra confirmar a sobreposição de arquivo
+cp /home/pauloh/* /disk2/ -i -r = parâmetro -r pra copiar diretórios recursivamente
+cp /home/pauloh/* /disk2/ -r -v = parâmetro -v pra "ver" o que está acontecendo
+
+#RENOMEANDO E MOVENDO ARQUIVOS
+mv origem destino parêmetros
+mv /home/pauloh/planilhas.xlsx  /disk2/planilhas2.xlsx -v
+mv bancodedado.mdf bancodedado3.mdf = renomear arquivos
+
+
+#INICIANDO, VISUALIZANDO E ENCERRANDO UM PROCESSO
+ps
+   a = mostra os processos de todos os usuários
+   u = forcene o nome do usuário e hora que iniciou o processo
+   x = mostra os processos executados fora do console
+ps aux
+kill PID
+killall nome-do-processo
+w = exibe usuários logados no momento
+who -a = exibe PID do usuário logado
+kill PID (do usuário)
+
+
+
+
+
+
+
+
+
